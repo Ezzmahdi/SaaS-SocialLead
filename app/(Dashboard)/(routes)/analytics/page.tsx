@@ -9,19 +9,6 @@ import { Coins } from "lucide-react";
 
 export default function AnalyticsPage() {
 
-	useScript('vendor/global/global.min.js');
-	useScript('vendor/global/global.min.js');
-	useScript('vendor/chart.js/Chart.bundle.min.js');
-	useScript('vendor/jquery-nice-select/js/jquery.nice-select.min.js');
-	useScript('vendor/apexchart/apexchart.js');
-	useScript('vendor/nouislider/nouislider.min.js');
-	useScript('vendor/wnumb/wNumb.js');
-	useScript('js/dashboard/dashboard-1.js');
-	useScript('js/custom.min.js');
-	useScript('js/dlabnav-init.js');
-	useScript('js/demo.js');
-	useScript('js/styleSwitcher.js');
-
     return (
         <div className="content-body">
 			<div className="container-fluid">

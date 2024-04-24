@@ -19,7 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    
     <ClerkProvider>
+      <head>
+        <link rel="icon" href="/logo.svg" />
+      </head>
       <html lang="en">
         <body className={inter.className}>
           <ModalProvider />
