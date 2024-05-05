@@ -51,6 +51,8 @@ body.dark {
   padding: 10px 14px;
   transition: var(--tran-05);
   z-index: 100;
+  overflow:hidden; 
+  overflow-y:scroll;
 }
 
 .sidebar.close {
@@ -210,14 +212,9 @@ header .imagetext .headertextBAR {
 
 .sidebar .menubar .nav-link {
   position: relative;
-  display: flex;
   list-style: none;
   align-items: center;
   flex-direction: row;
-}
-
-.sidebar .menubar .nav-link .a {
-  display: flex;
 }
 
 .menubar .mode {
@@ -305,18 +302,59 @@ body.dark .switch::before {
   width: calc(100% - 88px);
 }
 
-.menulinks {
-    padding-left: 0px;
-    padding: 0px;
+.sidebar .menulinks {
+  padding-left: 0px;
+  padding: 0px;
 }
 
-.sidebar .menulinks li .submenu {
-  padding: 6p 6px 14px 80px;
+.sidebar .menulinks li {
+  position: relative;
+  list-style: none;
+}
+
+.sidebar .menulinks li i {
+  color: rgb(112, 112, 112);
+}
+
+.sidebar .menulinks li .iconlink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar .menulinks li a {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .menulinks .hovering .submenu {
+  display: none;
+  transition: all 0.3 ease;
+}
+
+.sidebar .menulinks .hovering:hover .submenu {
+  transition: all 0.3 ease;
+  display: block;
+  padding: 6px 6px 14px 80px;
   margin-top: -10px;
+  border-radius: 5px;
+  padding-left: 50px;
+  
 }
 
-.sidebar .menulinks li .submenu a {
-  color: #fff; 
+
+.sidebar .menulinks .hovering:hover .submenu li a {
+  color: #fff;
   font-size: 15px;
-  padding: 5px 0;
+  font-weight: 500;
+  padding: 5px 5px;
+  color: rgb(112, 112, 112);
+}
+
+.sidebar .menulinks .hovering:hover .submenu li {
+  height: 30px;
+}
+
+.sidebar .menulinks .hovering:hover .submenu li a:hover {
+  color: #fff;
 }
