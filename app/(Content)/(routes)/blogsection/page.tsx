@@ -275,8 +275,8 @@ const BlogsectionPage = () => {
                                             </div>
                                             <div className="card-body d-flex flex-column h-100 tt-create-content-wrap p-0">
                                                 <textarea className="editor content-editor p-0 border-0" data-content-min-height="true" data-buttons='[["font", ["bold", "underline" , "italic" ]], ["fontname",["fontname"]], ["para", ["ul", "ol" , "paragraph" ]], ["style", ["style"]], ["fontsize", ["fontsize"]], ["insert", ["link"]], ["view", ["undo", "redo" ]]]' id="aiContents" name="contents">
-                                                {messages.map((message) => (
-                                                        <p>
+                                                {messages.map((message, index) => (
+                                                        <p key={index}>
                                                             {message.content}
                                                         </p>
                                                 ))}

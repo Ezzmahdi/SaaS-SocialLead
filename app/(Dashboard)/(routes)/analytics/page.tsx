@@ -105,7 +105,7 @@ export default function AnalyticsPage() {
 									<div className="col-xl-6">
 										<div className="row  mt-xl-0 mt-4">
 											<div className="col-md-6">
-												<h4 className="card-title">Social's Overview</h4>
+												<h4 className="card-title">Social&apos;s Overview</h4>
 												<ul className="card-list mt-4">
 													<li><span className="bg-blue circle"></span>Instagram<span>0%</span></li>
 													<li><span className="bg-success circle"></span>Facebook<span>0%</span></li>

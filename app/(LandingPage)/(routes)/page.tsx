@@ -278,7 +278,7 @@ export default function HomePage() {
                                       </div>
                                       <div className="features-block-text-wrap">
                                           <div className="features-block-heading">SocialLead AI</div>
-                                          <p className="para">Schedule posts during your audience's peak engagement times, generate suitable hashtags, and forecast your post's performance before it goes live.</p>
+                                          <p className="para">Schedule posts during your audience&apos;s peak engagement times, generate suitable hashtags, and forecast your post&apos;s performance before it goes live.</p>
                                       </div>
                                   </div>
                                   <img src="https://assets.website-files.com/635f628bf1c725f2f584e359/635f628bf1c725b2d384e39b_cta-1.svg" loading="lazy" alt="Decorative svg" className="card-bg"/>
@@ -291,7 +291,7 @@ export default function HomePage() {
                                       </div>
                                       <div className="features-block-text-wrap">
                                           <div className="features-block-heading">Scheduling</div>
-                                          <p className="para">Easily arrange and schedule your content delivery visually using simple click-and-drag actions alongside automation. It's that straightforward!</p>
+                                          <p className="para">Easily arrange and schedule your content delivery visually using simple click-and-drag actions alongside automation. It&apos;s that straightforward!</p>
                                       </div>
                                   </div>
                                   <img src="https://assets.website-files.com/635f628bf1c725f2f584e359/635f628bf1c725b2d384e39b_cta-1.svg" loading="lazy" alt="Decorative svg" className="card-bg"/>
