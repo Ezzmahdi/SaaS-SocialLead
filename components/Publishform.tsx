@@ -10,7 +10,7 @@ import React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ZodError, z } from "zod";
-import FacebookApiService from "@/app/api/meta/route";
+import FacebookApiService from "@/app/api/Meta/route";
 
 const postSchema = z.object({
   post: z.string().min(0, { message: "Post is required" }),
