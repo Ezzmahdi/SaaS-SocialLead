@@ -30,9 +30,16 @@ const FacebookPostForm = ({ isDialogOpen, setIsDialogOpen }: FacebookPostFormPro
   const handleCreatePost = async (data: string) => {
     try {
       setIsCreatingPost(true);
-      const post = await FacebookApiService.createPost(data);
+    const response = await fetch('@/api/meta/route', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ post: data }),
+    });
+    const post = await response.json();
 
-      console.log("POST", post);
+    console.log("POST", post);
     } catch (error) {
       if (error instanceof ZodError) {
         console.error("Validation error:", error.errors);

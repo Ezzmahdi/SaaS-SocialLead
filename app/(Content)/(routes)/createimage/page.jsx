@@ -8,6 +8,10 @@ import FormField from '@/components/FormField';
 
 import { Loader } from '@/components/loader';
 
+import { Button } from "@/components/ui/button"
+
+import {IMG} from "@/components/previewimg"
+
 const CreatePost = () => {
   const navigate = useNavigate;
 
@@ -117,11 +121,7 @@ const CreatePost = () => {
                 className="w-full h-full object-contain"
               />
             ) : (
-              <img
-                src='@/assets/preview.png'
-                alt="preview"
-                className="w-9/12 h-9/12 object-contain opacity-40"
-              />
+              <IMG />
             )}
 
             {generatingImg && (
@@ -133,23 +133,21 @@ const CreatePost = () => {
         </div>
 
         <div className="mt-5 flex gap-5">
-          <button
-            type="button"
+          <Button
             onClick={generateImage}
-            className="text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            variant="generate"
           >
             {generatingImg ? 'Generating...' : 'Generate'}
-          </button>
+          </Button>
         </div>
 
         <div className="mt-10">
           <p className="mt-2 text-[#666e75] text-[14px]">** Once you have created the image you want, you can share it with others in the community **</p>
-          <button
-            type="submit"
-            className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+          <Button
+            variant="community"
           >
             {loading ? 'Sharing...' : 'Share with the Community'}
-          </button>
+          </Button>
         </div>
       </form>
     </section>
