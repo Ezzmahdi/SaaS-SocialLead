@@ -6,6 +6,9 @@ import Card from "@/components/Card"
 import FormField from "@/components/FormField"
 import { Button } from '@/components/ui/button';
 
+import { Loader } from '@/components/loader';
+
+
 
 const RenderCards = ({ data, title }) => {
   if (data?.length > 0) {
@@ -91,6 +94,7 @@ const Home = () => {
       <div className="mt-10">
         {loading ? (
           <div className="flex justify-center items-center">
+            <Loader />
           </div>
         ) : (
           <>

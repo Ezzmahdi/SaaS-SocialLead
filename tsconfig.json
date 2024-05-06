@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(Dashboard)/(routes)/analytics/js/custom.min.js", "components/calander.jsx", "app/(Content)/(routes)/images/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(Dashboard)/(routes)/analytics/js/custom.min.js", "components/calander.jsx", "app/(Content)/(routes)/(routes)/images/page.jsx/page.jsx"],
   "exclude": ["node_modules"]
 }

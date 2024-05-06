@@ -4,6 +4,11 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
+import { increaseApiLimit, checkApiLimit } from "@/lib/api-limit";
+
+
+import { checkSubscription } from "@/lib/subscription";
+
 import {
   Select,
   SelectContent,
@@ -43,7 +48,7 @@ export const formSchema = z.object({
   publicId: z.string(),
 })
 
-const TransformationForm = ({ action, data = null, userId, type, creditBalance, config = null }: TransformationFormProps) => {
+const TransformationForm = ({ action, data = null, userId, type, config = null }: TransformationFormProps) => {
   const transformationType = transformationTypes[type];
   const [image, setImage] = useState(data)
   const [newTransformation, setNewTransformation] = useState<Transformations | null>(null);
@@ -51,6 +56,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
   const [isTransforming, setIsTransforming] = useState(false);
   const [transformationConfig, setTransformationConfig] = useState(config)
   const [isPending, startTransition] = useTransition()
+  const [hasInsufficientCredits, setHasInsufficientCredits] = useState(false);
   const router = useRouter()
 
   const initialValues = data && action === 'Update' ? {
@@ -177,7 +183,16 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
     })
   }
 
+  
+
   useEffect(() => {
+    const checkCredits = async () => {
+      const insufficient = await checkSubscription()  || false;
+      setHasInsufficientCredits(insufficient);
+    };
+  
+    checkCredits();
+
     if(image && (type === 'restore' || type === 'removeBackground')) {
       setNewTransformation(transformationType.config)
     }
@@ -186,7 +201,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
+        { hasInsufficientCredits && <InsufficientCreditsModal />}
         <CustomField 
           control={form.control}
           name="title"
