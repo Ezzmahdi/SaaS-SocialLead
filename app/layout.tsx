@@ -5,6 +5,7 @@ import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs'
 import { ModalProvider } from "@/components/modal-provider";
 
+import 'devextreme/dist/css/dx.light.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
     <ClerkProvider>
       <head>
         <link rel="icon" href="/logo.svg" />
+        
       </head>
       <html lang="en">
         <body className={inter.className}>

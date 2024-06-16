@@ -1,4 +1,5 @@
 import Navbar from "@/components/Landingnavbar";
+import Link from "next/link";
 
 
 
@@ -59,7 +60,7 @@ export default function Pricing() {
                                         </div>
                                     </div>
                                     <div className="pricing-button-wrap">
-                                        <a href="./get-started.html" className="main-button hollow-main-button w-button">Choose this plan</a>
+                                        <Link href="./get-started.html" className="main-button hollow-main-button w-button">Choose this plan</Link>
                                     </div>
                                 </div>
                                 <div id="w-node-fdf46a05-a8c7-aa6d-f95b-f65d2c8592e6-2284e36d" className="pricing-block block-wanted">
@@ -102,7 +103,7 @@ export default function Pricing() {
                                         </div>
                                     </div>
                                     <div className="pricing-button-wrap">
-                                        <a href="./get-started.html" className="main-button hollow-white-button w-button">Choose this plan</a>
+                                        <Link href="./get-started.html" className="main-button hollow-white-button w-button">Choose this plan</Link>
                                     </div>
                                     <img src="https://assets.website-files.com/635f628bf1c725f2f584e359/635f628bf1c725b2d384e39b_cta-1.svg" loading="lazy" alt="Decorative svg" className="pricing-bg"/>
                                 </div>
@@ -146,7 +147,7 @@ export default function Pricing() {
                                         </div>
                                     </div>
                                     <div className="pricing-button-wrap">
-                                        <a href="./get-started.html" className="main-button hollow-main-button w-button">Choose this plan</a>
+                                        <Link href="./get-started.html" className="main-button hollow-main-button w-button">Choose this plan</Link>
                                     </div>
                                 </div>
                             </div>
@@ -515,11 +516,11 @@ export default function Pricing() {
                     <div className="wrapper-1280px footer-wrapper">
                         <div className="footer-top-container">
                             <div className="footer-conpany-wrap">
-                                <a href="/" className="footer-home-link-block w-inline-block">
+                                <Link href="/" className="footer-home-link-block w-inline-block">
                                     <img src="Icon-white.svg" loading="lazy" alt="SocialLead Logo" className="footer-logo"/>
-                                </a>
+                                </Link>
                                 <p className="footer-para">SocialLead is one of the most reliable social media mangment service to automate your platforms.</p>
-                                <a href="/get-started" className="small-buttom w-button">Get Started</a>
+                                <Link href="/get-started" className="small-buttom w-button">Get Started</Link>
                                 <div className="footer-social-wrap">
                                     <a href="https://www.linkedin.com/in/devprakashsahoo/" target="_blank" className="footer-social-link w-inline-block">
                                         <img src="https://assets.website-files.com/635f628bf1c725f2f584e359/635f628bf1c7257f4984e3a0_Group%2044.svg" loading="lazy" alt="Linkedin icon" className="footer-social-icon"/>
@@ -536,23 +537,23 @@ export default function Pricing() {
                                 <div className="footer-links-wrapper">
                                     <div className="footer-links-head">Pages main</div>
                                     <div className="footer-links-container">
-                                        <a href="./index.html" className="footer-links">Home</a>
-                                        <a href="./pricing.html" className="footer-links">Pricing</a>
+                                        <Link href="./index.html" className="footer-links">Home</Link>
+                                        <Link href="./pricing.html" className="footer-links">Pricing</Link>
                                     </div>
                                 </div>
                                 <div className="footer-links-wrapper">
                                     <div className="footer-links-head">Pages</div>
                                     <div className="footer-links-container">
-                                        <a href="./about.html" className="footer-links">About</a>
-                                        <a href="./careers.html" className="footer-links">Careers</a>
-                                        <a href="./contact.html" className="footer-links">Contact</a>
+                                        <Link href="./about.html" className="footer-links">About</Link>
+                                        <Link href="./careers.html" className="footer-links">Careers</Link>
+                                        <Link href="./contact.html" className="footer-links">Contact</Link>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="footer-copyright-container">
                             <div className="footer-copyright-text">
-                                © All rights reserved. <a href="" target="_blank" className="footer-copy-link">Enginete</a>
+                                © All rights reserved. <Link href="" target="_blank" className="footer-copy-link">AutoTech</Link>
                                 .
                             </div>
                         </div>

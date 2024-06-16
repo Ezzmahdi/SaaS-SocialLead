@@ -10,7 +10,7 @@ datasource db {
 
 
 model UserPlatforms {
-  id            Int      @id         @default(autoincrement())
+  id            Int         @id         @default(autoincrement())
   userId        Int         @unique
   accessToken   String
 }
@@ -31,4 +31,14 @@ model UserSubscription {
   stripeSubscriptionId     String?     @unique     @map(name:"stripe_subscription_id")
   stripePricedId           String?                 @map(name: "stripe_price_id")
   stripeCurrentPeriodEnd   DateTime?               @map(name:"stripe_current_period_end")
+}
+
+model SocialPlatforms {
+  id                String     @id         @default(cuid())
+  userId            String     @unique
+  Facebook          Boolean                @default(false)
+  Instagram         Boolean                @default(false)
+  LinkedIn          Boolean                @default(false)                
+  Tiktok            Boolean                @default(false)
+  Youtube           Boolean                @default(false)
 }

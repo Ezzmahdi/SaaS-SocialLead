@@ -34,6 +34,21 @@
 
 // pages/api/postToFacebook.js
 // pages/api/postToFacebook.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
@@ -47,19 +62,12 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     return;
   }
 
-  const { message, scheduledDate, scheduledTime } = req.body;
+  const { message } = req.body;
 
   const { YOUR_CLIENT_ID, YOUR_CLIENT_SECRET } = process.env;
 
     try {
 
-        // const newSchedulePost: SchedulePost = {
-        //   message,
-        //   scheduledDate,
-        //   scheduledTime,
-        // };
-
-        // Get access token from Facebook
         
         const { data } = await axios.get(`https://graph.facebook.com/oauth/access_token?client_id=${YOUR_CLIENT_ID}&client_secret=${YOUR_CLIENT_SECRET}&grant_type=client_credentials`);
         const accessToken = data.access_token;

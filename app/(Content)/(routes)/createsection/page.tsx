@@ -20,6 +20,7 @@ import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
 
 
+import { useSearchParams } from "next/navigation";
 
 import { ChatCompletionRequestMessage } from "openai";
 import { Loader } from "@/components/loader";
@@ -72,6 +73,8 @@ const BlogsectionPage = () => {
         }
     };
 
+    const searchParams = useSearchParams();
+    const type = searchParams.get('type');
 
 
     return (
@@ -87,7 +90,7 @@ const BlogsectionPage = () => {
                                     <div className="row justify-content-between align-items-center g-2">
                                         <div className="col-auto flex-grow-1">
                                             <div className="tt-page-title mb-3 mb-lg-0">
-                                                <h1 className="h5 mb-lg-1">Blog Section</h1>
+                                                <h1 className="h5 mb-lg-1">{type}</h1>
                                             </div>
                                         </div>
                                         <div className="col-auto">
@@ -110,24 +113,12 @@ const BlogsectionPage = () => {
                                             <input className="project_id" type="hidden" name="project_id" value=""></input>
     
                                             <div className="tt-template-heading mb-4 alert bg-soft-primary alert-primary">
-                                                <p className="mb-0">Write a blog section with the key points of your article</p>
+                                                <p className="mb-0">Write a {type} with the your own key points</p>
                                             </div>
     
     
                                             <div className="mb-4">
-                                                <div className="d-flex flex-column">
-                                                    <label htmlFor="language" className="form-label"><span className="fw-bold tt-promot-number fw-bold fs-4 me-2">1.</span>Select input &amp; output language<span className="text-danger ms-1">*</span></label>
-                                                    <select id="language" className="w-100 form-control text-capitalize country-flag-select" data-toggle="select2" name="lang">
-                                                        <option value="English" selected data-flag="https://www.writebots.org/public/backend/assets/img/flags/en.png?v=v1.7.0">
-                                                            English
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-    
-    
-                                            <div className="mb-4">
-                                                <label htmlFor="title" className="form-label"><span className="fw-bold tt-promot-number fw-bold fs-4 me-2">2.</span>Title of the blog
+                                                <label htmlFor="title" className="form-label"><span className="fw-bold tt-promot-number fw-bold fs-4 me-2">1.</span>Main Idea of the {type}
                                                     <span className="text-danger ms-1">*</span>
                                                 </label>
 
@@ -146,7 +137,7 @@ const BlogsectionPage = () => {
                                                 
                                             </div>
                                             <div className="mb-4">
-                                                <label htmlFor="key_points" className="form-label"><span className="fw-bold tt-promot-number fw-bold fs-4 me-2">3.</span>What are the main points you want to cover?
+                                                <label htmlFor="key_points" className="form-label"><span className="fw-bold tt-promot-number fw-bold fs-4 me-2">2.</span>What do you want to cover?
                                                     <span className="text-danger ms-1">*</span>
                                                 </label>
     
@@ -156,7 +147,7 @@ const BlogsectionPage = () => {
                                             <div className="mb-4">
                                                 <div className="d-flex flex-column">
                                                     <div className="d-flex align-items-center justify-content-between tt-advance-options cursor-pointer">
-                                                        <label className="form-label cursor-pointer"><span className="fw-bold tt-promot-number fw-bold fs-4 me-2">4.</span>Advance Options<span className="ms-1 cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Browse more fields"><i data-feather="help-circle" className="icon-14"></i></span></label>
+                                                        <label className="form-label cursor-pointer"><span className="fw-bold tt-promot-number fw-bold fs-4 me-2">3.</span>Advance Options<span className="ms-1 cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Browse more fields"><i data-feather="help-circle" className="icon-14"></i></span></label>
                                                         <span><i data-feather="arrow-down" className="icon-16 text-muted"></i></span>
                                                     </div>
     
@@ -274,7 +265,7 @@ const BlogsectionPage = () => {
                                                 
                                             </div>
                                             <div className="card-body d-flex flex-column h-100 tt-create-content-wrap p-0">
-                                                <textarea className="editor content-editor p-0 border-0" data-content-min-height="true" data-buttons='[["font", ["bold", "underline" , "italic" ]], ["fontname",["fontname"]], ["para", ["ul", "ol" , "paragraph" ]], ["style", ["style"]], ["fontsize", ["fontsize"]], ["insert", ["link"]], ["view", ["undo", "redo" ]]]' id="aiContents" name="contents">
+                                                <textarea className="editor content-editor border-0 resize-y w-full h-[300px] p-2 rounded-md overflow-hidden" data-content-min-height="true" data-buttons='[["font", ["bold", "underline" , "italic" ]], ["fontname",["fontname"]], ["para", ["ul", "ol" , "paragraph" ]], ["style", ["style"]], ["fontsize", ["fontsize"]], ["insert", ["link"]], ["view", ["undo", "redo" ]]]' id="aiContents" name="contents">
                                                 {messages.map((message, index) => (
                                                         <p key={index}>
                                                             {message.content}

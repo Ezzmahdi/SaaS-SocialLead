@@ -68,10 +68,10 @@ export const ProModal = () => {
                 <DialogContent className="flex size-full">
                     <DialogHeader>
                         <DialogTitle className="flex justify-center items-center flex-col gap-y-4 pb-2">
-                            <div className="flex items-center gap-x-2 font-bold py-1">
+                            <div className="flex items-center gap-x-2 font-bold py-1" style={{width: 462}}>
                                 Upgrade to SocialLead
                                 <Badge className="uppercase text-sn py-1" variant={'premium'}>
-                                    pro
+                                    PRO
                                 </Badge>
                             </div>
                         </DialogTitle>

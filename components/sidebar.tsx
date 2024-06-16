@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import BAR from './sidebar.module.css'
 
-import { Search, LucideHome, BookCopy, CalendarCheck2, BarChart2, ArrowDownNarrowWideIcon, ArrowBigDownDash, MoveDown, MoveDownIcon, ArrowDown01, ArrowUpDownIcon, ChevronDown, Edit } from 'lucide-react'
+import { Search, LucideHome, BookCopy, CalendarCheck2, BarChart2, ArrowDownNarrowWideIcon, ArrowBigDownDash, MoveDown, MoveDownIcon, ArrowDown01, ArrowUpDownIcon, ChevronDown, Edit, Pen, PencilLineIcon, Film } from 'lucide-react'
 import { FreeCounter } from '@/components/freecounter';
 
 import { navLinks } from '@/constants/index'
@@ -27,22 +27,15 @@ export default function Sidebar({
 
   return (
         <nav className={`${BAR.sidebar}`}>
-            <header>
-                <div className={BAR.imagetext}>
-                    <span className={BAR.image}>
-                        <img src="logo.svg" alt="logo"/>
-                    </span>
 
-                    <div className={`${BAR.text} ${BAR.headertextBAR}`}>
-                        <span className={BAR.name}>User</span>
-                        <span className={BAR.profession}>Agent</span>
-                    </div>
-                </div>
-
-            </header>
+            <li className={`${BAR.icon} m-2`}>
+                <img src="icon.svg" alt="Icon" />
+            </li>  
 
             <div className={BAR.menubar}>
                 <div className={BAR.menu}>
+
+                    
 
                     <li className={BAR.searchbox}>
                         <i className={`${BAR.icon}`}><Search/></i>
@@ -53,63 +46,53 @@ export default function Sidebar({
                         
                         
                         <li className={`${BAR['nav-link']} `}>
-                            <a href="/dashboard" >
+                            <Link href="/dashboard" >
                                 <i className={`icon ${BAR.icon}`}><LucideHome/></i>
                                 <span className={`${BAR.text} ${BAR['nav-text']}`}>Dashboard</span>
-                            </a>
+                            </Link>
                         </li>
 
-                        <div className={`${BAR.hovering}`}>
                         <li className={`${BAR['nav-link']} `}>
-                                <a className={BAR.a} href="/content" >
+                            <Link href="/compose" >
+                                <i className={`icon ${BAR.icon}`}><PencilLineIcon/></i>
+                                <span className={`${BAR.text} ${BAR['nav-text']}`}>Compose</span>
+                            </Link>
+                        </li>
+
+                        
+                        <li className={`${BAR['nav-link']} `}>
+                                <Link className={BAR.a} href="/templates" >
                                     <i className={`${BAR.icon}`}><BookCopy/></i>
-                                    <span className={`${BAR.text} ${BAR['nav-text']}`}>Content</span>
-                                </a>
-                                <i> <ChevronDown /> </i>    
+                                    <span className={`${BAR.text} ${BAR['nav-text']}`}>Magic Write</span>
+                                </Link>
                         </li>
-                        <ul className={`${BAR.submenu}`}>
-                            <li><a href="/templates">Write</a></li>
-                            <li><a href="/image">Image</a></li>
-                            <li><a href="/music">Music</a></li>
-                            <li><a href="/Video">Video</a></li>
-                        </ul>
-                        </div>
-
-                        <div className={`${BAR.hovering}`}>
-                            <li className={`${BAR['nav-link']} `}>
-                                <a href="/edit" >
-                                    <i className={`${BAR.icon}`}><Edit/></i>
-                                    <span className={`${BAR.text} ${BAR['nav-text']}`}>Edit</span>
-                                </a>
-                                <i> <ChevronDown /> </i>
-                            </li>
-                            <ul className={`${BAR.submenu}`}>
-                                
-                                {navLinks.slice(0, 6).map((link) => {
-                                  return (
-                                    <li key={link.route}>
-                                      <a href={link.route}>
-                                        {link.label}
-                                      </a>
-                                    </li>
-                                  )
-                                })}
-    
-                            </ul>
-                        </div>
 
                         <li className={`${BAR['nav-link']} `}>
-                            <a href="/schedule" >
+                                <Link className={BAR.a} href="/video" >
+                                    <i className={`${BAR.icon}`}><Film/></i>
+                                    <span className={`${BAR.text} ${BAR['nav-text']}`}>AI Video</span>
+                                </Link>
+                        </li>
+
+                        <li className={`${BAR['nav-link']} `}>
+                            <Link href="/edit" >
+                                <i className={`${BAR.icon}`}><Edit/></i>
+                                <span className={`${BAR.text} ${BAR['nav-text']}`}>Imagify</span>
+                            </Link>
+                        </li>
+                        
+                        <li className={`${BAR['nav-link']}`}>
+                            <Link href="/schedule" >
                                 <i className={`${BAR.icon}`}><CalendarCheck2/></i>
                                 <span className={`${BAR.text} ${BAR['nav-text']}`}>Schedule</span>
-                            </a>
+                            </Link>
                         </li>
 
-                        <li className={`${BAR['nav-link']} `}>
-                            <a href="/analytics" >
+                        <li className={`${BAR['nav-link']}`}>
+                            <Link href="/analytics" >
                                 <i className={`${BAR.icon}`}><BarChart2/></i>
                                 <span className={`${BAR.text} ${BAR['nav-text']}`}>Analytics</span>
-                            </a>
+                            </Link>
                         </li>
 
                     </ul>
@@ -131,7 +114,7 @@ export default function Sidebar({
 
                     </li> */}
 
-                    <FreeCounter apiLimitCount={apiLimitCount} isPro={isPro} />
+                    {/* <FreeCounter apiLimitCount={apiLimitCount} isPro={isPro} /> */}
 
                 </div>
             </div>

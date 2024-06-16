@@ -1,5 +1,6 @@
 import Navbar from "@/components/Landingnavbar";
-import React, { useEffect } from 'react';
+import Link from "next/link";
+import React from 'react';
 
 
 export default function HomePage() {
@@ -30,7 +31,7 @@ export default function HomePage() {
                                   <p data-w-id="df6ea21f-7554-cbec-3c87-572c80d667e7" className="para max-width-440px">Generate videos, create posts, schedule, publish, and easily manage your social media.</p>
                               </div>
                               <div data-w-id="27ec819a-a299-2e55-4731-c1f9d88c8956" className="home-hero-button-wrap">
-                                  <a href="/dashboard" className="main-button w-button">Get Started</a>
+                                  <Link href="/dashboard" className="main-button w-button">Get Started</Link>
                               </div>
                           </div>
                       </div>
@@ -419,7 +420,7 @@ export default function HomePage() {
                                       <p className="para max-width-440px">Empower your brand with a robust and influential social presence through our comprehensive service.</p>
                                   </div>
                                   <div className="home-product-cta">
-                                      <a href="/about" className="main-button w-button">Read more</a>
+                                      <Link href="/about" className="main-button w-button">Read more</Link>
                                   </div>
                               </div>
                               <div data-w-id="141f8447-8911-36fd-0810-f738a932c30f" className="home-product-split-explain">
@@ -465,8 +466,8 @@ export default function HomePage() {
                               <p className="para-white max-width-440px">Supercharge your growth with a website designed to elevate your social media success.</p>
                           </div>
                           <div className="cta-button-wrap">
-                              <a href="/getstarted" className="main-button w-button">Get started now</a>
-                              <a href="/pricing" className="main-button hollow-white-button w-button">Compare plans</a>
+                              <Link href="/getstarted" className="main-button w-button">Get started now</Link>
+                              <Link href="/pricing" className="main-button hollow-white-button w-button">Compare plans</Link>
                           </div>
                       </div>
                       <img src="https://assets.website-files.com/635f628bf1c725f2f584e359/635f628bf1c725263a84e39c_cta-2.webp" loading="lazy" alt="" className="cta-1-icon icon-1"/>
@@ -480,29 +481,29 @@ export default function HomePage() {
                   <div className="wrapper-1280px footer-wrapper">
                       <div className="footer-top-container">
                           <div className="footer-conpany-wrap">
-                              <a href="/" aria-current="page" className="footer-home-link-block w-inline-block w--current">
+                              <Link href="/" aria-current="page" className="footer-home-link-block w-inline-block w--current">
                                   <img src="Icon-white.svg" loading="lazy" alt="SocialLead Logo" className="footer-logo"/>
-                              </a>
+                              </Link>
                               <p className="footer-para">SocialLead is one of the most reliable social media mangment service to automate your platforms.</p>
-                              <a href="/getstarted" className="small-buttom w-button">Get Started</a>
+                              <Link href="/getstarted" className="small-buttom w-button">Get Started</Link>
                               <div className="footer-social-wrap">
-                                  <a href="https://www.linkedin.com" target="_blank" className="footer-social-link w-inline-block">
+                                  <Link href="https://www.linkedin.com" target="_blank" className="footer-social-link w-inline-block">
                                       <img src="https://assets.website-files.com/635f628bf1c725f2f584e359/635f628bf1c7257f4984e3a0_Group%2044.svg" loading="lazy" alt="Linkedin icon" className="footer-social-icon"/>
-                                  </a>
-                                  <a href="https://twitter.com" target="_blank" className="footer-social-link w-inline-block">
+                                  </Link>
+                                  <Link href="https://twitter.com" target="_blank" className="footer-social-link w-inline-block">
                                       <img src="https://assets.website-files.com/635f628bf1c725f2f584e359/635f628bf1c725155784e3a1_Group%2043.svg" loading="lazy" alt="Twitter Icon" className="footer-social-icon"/>
-                                  </a>
-                                  <a href="mailto:mahdi.a.ezz@gmail.com?subject=Hi%20Team%20Flowset%20%F0%9F%98%8E" className="footer-social-link w-inline-block">
+                                  </Link>
+                                  <Link href="mailto:mahdi.a.ezz@gmail.com?subject=Hi%20Team%20Flowset%20%F0%9F%98%8E" className="footer-social-link w-inline-block">
                                       <img src="https://assets.website-files.com/635f628bf1c725f2f584e359/635f628bf1c725797c84e39f_Group%2042.svg" loading="lazy" alt="Message Icon" className="footer-social-icon"/>
-                                  </a>
+                                  </Link>
                               </div>
                           </div>
                           <div className="footer-links-wrap">
                               <div className="footer-links-wrapper">
                                   <div className="footer-links-head">Pages main</div>
                                   <div className="footer-links-container">
-                                      <a href="/" aria-current="page" className="footer-links w--current">Home</a>
-                                      <a href="/pricing" className="footer-links">Pricing</a>
+                                      <Link href="/" aria-current="page" className="footer-links w--current">Home</Link>
+                                      <Link href="/pricing" className="footer-links">Pricing</Link>
 
 
                                   </div>
@@ -510,16 +511,16 @@ export default function HomePage() {
                               <div className="footer-links-wrapper">
                                   <div className="footer-links-head">Pages</div>
                                   <div className="footer-links-container">
-                                      <a href="/about" className="footer-links">About</a>
-                                      <a href="/careers" className="footer-links">Careers</a>
-                                      <a href="/contact" className="footer-links">Contact</a>
+                                      <Link href="/about" className="footer-links">About</Link>
+                                      <Link href="/careers" className="footer-links">Careers</Link>
+                                      <Link href="/contact" className="footer-links">Contact</Link>
                                   </div>
                               </div>
                           </div>
                       </div>
                       <div className="footer-copyright-container">
                           <div className="footer-copyright-text">
-                              © All rights reserved. <a href="" target="_blank" className="footer-copy-link">Enginete</a>
+                              © All rights reserved. <Link href="" target="_blank" className="footer-copy-link">AutoTech</Link>
                               .
                           </div>
                       </div>
