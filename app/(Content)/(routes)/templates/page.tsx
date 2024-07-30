@@ -22,47 +22,16 @@ const TemplatesPage = () => {
                 </header>
                 <section className="tt-section">
                     <div className="container">
-                        <div className="row mb-4"></div>
+                        <div className="row"></div>
                         <div className="row mb-3 g-3">
                             <div className="col-xl-12">
                                 <div className="card h-100 bg-secondary-subtle">
-                                    <div className="card-header sticky-top-card bg-secondary py-lg-5 py-4">
-                                    <div className="tab-content card-body" id="pills-tabContent">
-                                        <div className="tab-pane fade show active" id="all-tab" role="tabpanel" aria-labelledby="tabId-all">
-                                            <div className="row g-3">                                                    
+                                    <div className="card-header sticky-top-card bg-secondary py-4">
+                                            <div className="row g-3">
                                                 <div className="col-lg-3 col-sm-6">
                                                     <div className="tt-single-template d-flex flex-column h-100 position-relative">
                                                         <div className="card flex-column h-100 tt-template-card tt-corner-shape border-0 ">
-                                                            <Link href="https://www.writebots.org/dashboard/templates/testimonial-email" className="card-body d-flex flex-column h-100">
-                                                                <div className="tt-card-info mb-4">
-                                                                    <div className="tt-template-icon mb-3">
-                                                                        <img src="https://www.writebots.org/public/backend/assets/img/templates/testimonial-email.png?v=v1.7.0" alt="" className="img-fluid"/>
-                                                                    </div>
-                                                                    <h3 className="h6">Testimonial Email</h3>
-                                                                </div>
-                                                            </Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-sm-6">
-                                                    <div className="tt-single-template d-flex flex-column h-100 position-relative">
-                                                        <div className="card flex-column h-100 tt-template-card tt-corner-shape border-0 ">
-                                                            <Link href="https://www.writebots.org/dashboard/templates/promotional-email" className="card-body d-flex flex-column h-100">
-                                                                <div className="tt-card-info mb-4">
-                                                                    <div className="tt-template-icon mb-3">
-                                                                        <img src="https://www.writebots.org/public/backend/assets/img/templates/promotional-email.png?v=v1.7.0" alt="" className="img-fluid"/>
-                                                                    </div>
-                                                                    <h3 className="h6">Promotional Email</h3>
-                                                                </div>
-                                                            </Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div className="col-lg-3 col-sm-6">
-                                                    <div className="tt-single-template d-flex flex-column h-100 position-relative">
-                                                        <div className="card flex-column h-100 tt-template-card tt-corner-shape border-0 ">
-                                                            <Link href="https://www.writebots.org/dashboard/templates/twitter-post" className="card-body d-flex flex-column h-100">
+                                                            <Link href="/createsection?type=Twitter%20Post" className="card-body d-flex flex-column h-100">
                                                                 <div className="tt-card-info mb-4">
                                                                     <div className="tt-template-icon mb-3">
                                                                         <img src="https://www.writebots.org/public/backend/assets/img/templates/twitter-post.png?v=v1.7.0" alt="" className="img-fluid"/>
@@ -204,32 +173,15 @@ const TemplatesPage = () => {
                                                             </Link>
                                                         </div>
                                                     </div>
-                                                </div>
-
-                                                <div className="col-lg-3 col-sm-6">
-                                                    <div className="tt-single-template d-flex flex-column h-100 position-relative">
-                                                        <div className="card flex-column h-100 tt-template-card tt-corner-shape border-0 ">
-                                                            <Link href="https://www.writebots.org/dashboard/templates/home-page-seo-meta-description" className="card-body d-flex flex-column h-100">
-                                                                <div className="tt-card-info mb-4">
-                                                                    <div className="tt-template-icon mb-3">
-                                                                        <img src="https://www.writebots.org/public/backend/assets/img/templates/home-page-seo-meta-description.png?v=v1.7.0" alt="" className="img-fluid"/>
-                                                                    </div>
-                                                                    <h3 className="h6">Home Page SEO Meta Description</h3>
-                                                                    
-                                                                </div>
-                                                            </Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </div> 
 
                                             </div>
-                                        </div>
+                                        
 
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </section>
 

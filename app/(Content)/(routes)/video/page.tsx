@@ -1,131 +1,76 @@
 "use client";
 
+import { Plus } from 'lucide-react';
 
-import { VideoIcon } from "lucide-react";
-
-import * as z from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+type Avatar = {
+  name: string;
+  photoUrl: string;
+};
 
-import { formSchema } from "./constants";
+export default function MainPage() {
+  
+  const [avatars, setAvatars] = useState<Avatar[]>([]);
 
-import { Heading } from "@/components/heading";
-import { Form, FormField, FormItem, FormControl } from "@/components/ui/form"
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Empty } from "@/components/empty";
-
-
-
-import { Loader } from "@/components/loader";
-
-import { useProModal } from "@/hooks/use-pro-modal";
-
-
-const VideoPage = () => {
-
-    const proModal = useProModal();
-
-    const router = useRouter();
-
-    const [video, setVideo] = useState<string>()
-
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver:zodResolver(formSchema),
-        defaultValues: {
-            prompt:""
-        }
+  useEffect(() => {
+    // Fetch existing avatars
+    axios.get('/api/get-avatars').then(response => {
+      setAvatars(response.data);
     });
+  }, []);
 
-    const isLoading = form.formState.isSubmitting;
-
-    const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        try {
-            setVideo(undefined);
-
-            const response = await axios.post("/api/video", values);
-            
-            setVideo(response.data[0]);
-
-            form.reset();
-
-        } catch (error:any) {
-
-            if (error?.response?.status === 403) {
-                proModal.onOpen();
-            };
-        } finally {
-            router.refresh();
-        }
-    }
-
-    return (
-        <div>
-            <Heading 
-            title="Video Generation" 
-            description="Turn your prompt into video." 
-            icon={VideoIcon} 
-            iconColor="text-orange-700" 
-            bgColor="bg-orange-700/10"
-            />
-
-            <div className="px-4 lg:px-8">
-                <div>
-                    <Form {...form}>
-                        <form 
-                            onSubmit={form.handleSubmit(onSubmit)} 
-                            className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2">
-                            
-                            <FormField
-                                name="prompt"
-                                render = {({ field }) => (
-                                <FormItem className="col-span-12 lg:col-span-8">
-                                    <FormControl className="m-0 p-0">
-                                        <Input 
-                                            className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent" 
-                                            disabled={isLoading} 
-                                            placeholder="Clown fish swimming around a coral reef"  
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                </FormItem>
-                            )}
-                            />
-
-                            <Button className="col-span-12 w-full" disabled={isLoading}>
-                                Generate
-                            </Button>
-                        </form>
-                    </Form>
-                </div>
-                <div className="space-y-4 nt-4">
-                    {isLoading && (
-                        <div className="p-8  rounded-lg w-full flex items-center justify-center">
-                            <Loader />
-                        </div>
-                    )}
-
-                    {!video && !isLoading && (
-                        <Empty label="No Video generated." />
-                    )}
-
-                    {video && (
-                        <video controls className="w-full aspect-video mt-8 rounded-lg border bg-black">
-                            <source src={video} />
-                        </video>
-                    )}
-                </div>
-            </div>
-
+  return (
+    <div className="p-4">
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-2xl font-bold">Video Avatar</h1>
+        <div className="flex items-center space-x-2">
+          <button className="bg-purple-500 text-white px-4 py-2 rounded-lg flex items-center">
+            <span className="mr-2"><Plus /></span>
+            New Video Avatar
+          </button>
         </div>
-    )
+      </div>
+      <div className="bg-white p-4 rounded-lg shadow-md flex items-center mb-4">
+        <div className="flex items-center space-x-4">
+          <div className="bg-purple-100 p-4 rounded-full">
+            <span className="text-purple-600 text-2xl">👤</span>
+          </div>
+          <div>
+            <h2 className="text-xl font-semibold">Instant Avatar</h2>
+            <p>Your digital twin in minutes</p>
+          </div>
+        </div>
+        <img src="https://placehold.co/100x100" alt="Avatar" className="ml-auto rounded-lg"/>
+      </div>
+      <div className="mb-4">
+        <h2 className="text-xl font-semibold">Instant Avatar <span className="bg-zinc-200 text-zinc-600 px-2 py-1 rounded-full text-sm">1</span></h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="border-2 border-dashed border-purple-300 p-4 rounded-lg flex items-center justify-center relative">
+          <div className="text-center">
+            <div className="bg-purple-100 p-8 rounded-full mb-4">
+              <span className="text-purple-600 text-4xl">👤</span>
+            </div>
+            <button className="bg-purple-500 text-white px-4 py-2 rounded-lg">Create Instant Avatar</button>
+          </div>
+        </div>
+        {avatars.map((avatar, index) => (
+        <div key={index} className="bg-white p-4 rounded-lg shadow-md flex items-center mb-4">
+          <div className="flex items-center space-x-4">
+            <div className="bg-purple-100 p-4 rounded-full">
+              <span className="text-purple-600 text-2xl">👤</span>
+            </div>
+            <div>
+              <h2 className="text-xl font-semibold">{avatar.name}</h2>
+              <p>Your digital twin in minutes</p>
+            </div>
+          </div>
+          <img src={avatar.photoUrl} alt="Avatar" className="ml-auto rounded-lg"/>
+        </div>
+      ))}
+      </div>
+    </div>
+  );
 }
-
-export default VideoPage;
-
-

@@ -33,7 +33,7 @@ export default function DashboardPage() {
 
                 <div className="my-6 w-full">
                     <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">Upcoming posts</h2>
-                    <table className="w-full bg-white dark:bg-zinc-800 p-4 rounded-lg shadow mt-4">
+                    <table className="table w-full bg-white dark:bg-zinc-800 p-4 rounded-lg shadow mt-4">
                         <tr>
                             <td className="text-zinc-600 dark:text-zinc-400 p-4">15:13 Mar 28</td>
                             <td className="text-zinc-600 dark:text-zinc-400 p-4">According to HubSpot, 21% of people will unfollow you on social media if you bomba...</td>

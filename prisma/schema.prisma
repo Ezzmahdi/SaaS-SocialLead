@@ -36,9 +36,12 @@ model UserSubscription {
 model SocialPlatforms {
   id                String     @id         @default(cuid())
   userId            String     @unique
-  Facebook          Boolean                @default(false)
-  Instagram         Boolean                @default(false)
-  LinkedIn          Boolean                @default(false)                
-  Tiktok            Boolean                @default(false)
-  Youtube           Boolean                @default(false)
+  Facebook          Boolean    @default(false)
+  Instagram         Boolean    @default(false)
+  LinkedIn          Boolean    @default(false)
+  LinkedInToken     String?    
+  Tiktok            Boolean    @default(false)
+  Youtube           Boolean    @default(false)
+  YoutubeToken     String?    
+
 }

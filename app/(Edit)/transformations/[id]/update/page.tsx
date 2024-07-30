@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs";
+import { auth } from '@clerk/nextjs/server';
 import { redirect } from "next/navigation";
 
 import Header from "@/components/shared/Header";
@@ -27,8 +27,8 @@ const Page = async ({ params: { id } }: SearchParamProps) => {
           action="Update"
           userId={user._id}
           type={image.transformationType as TransformationTypeKey}
-          creditBalance={user.creditBalance}
-          config={image.config}
+          // creditBalance={user.creditBalance}
+          // config={image.config}
           data={image}
         />
       </section>

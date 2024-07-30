@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(Dashboard)/(routes)/analytics/js/custom.min.js", "components/calander.jsx", "app/(Content)/(routes)/(routes)/images/page.jsx/page.jsx", "components/facebookbtn.jsx", "app/(Dashboard)/(routes)/try/page.jsx", "app/(Dashboard)/(routes)/compose/page.jsx", "app/(Dashboard)/(routes)/analytics/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(Dashboard)/(routes)/analytics/js/custom.min.js", "components/calander.jsx", "app/(Content)/(routes)/(routes)/images/page.jsx/page.jsx", "components/facebookbtn.jsx", "app/(Dashboard)/(routes)/tryaddsocial/page.jsx", "app/(Dashboard)/(routes)/compose/page.jsx", "app/(Dashboard)/(routes)/analytics/page.jsx", "app/(Edit)/edit/page.tsx", "app/(Dashboard)/(routes)/schedule/page.jsx", "app/api/image/route.js", "lib/prismadb.ts"],
   "exclude": ["node_modules"]
 }

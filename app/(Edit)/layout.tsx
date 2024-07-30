@@ -1,4 +1,3 @@
-import MobileNav from '@/components/shared/MobileNav'
 import { Toaster } from '@/components/ui/toaster'
 import Sidebar from "@/components/sidebar";
 import { getApiLimitCount } from "@/lib/api-limit";

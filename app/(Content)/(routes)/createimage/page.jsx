@@ -1,19 +1,18 @@
+// app/createimage/page.jsx
+
 "use client";
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
 import { getRandomPrompt } from '@/lib/utils';
 import FormField from '@/components/FormField';
 
 import { Loader } from '@/components/loader';
 
 import { Button } from "@/components/ui/button"
-
-import {IMG} from "@/components/previewimg"
+import { Configuration, OpenAIApi } from 'openai';
 
 const CreatePost = () => {
-  const navigate = useNavigate;
 
   const [form, setForm] = useState({
     name: '',
@@ -33,27 +32,44 @@ const CreatePost = () => {
 
   const generateImage = async () => {
     if (form.prompt) {
-      try {
-        setGeneratingImg(true);
-        const response = await fetch('https://dalle-arbb.onrender.com/api/v1/dalle', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            prompt: form.prompt,
-          }),
-        });
+        try {
+            setGeneratingImg(true);
+            const response = await fetch('/api/image', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ prompt: form.prompt }),
+            });
 
-        const data = await response.json();
-        setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
-      } catch (err) {
-        alert(err);
-      } finally {
-        setGeneratingImg(false);
-      }
+            const responseText = await response.text(); // Read raw response as text
+            console.log('Raw response:', responseText);
+
+            if (!response.ok) {
+                console.error('Error response from API:', responseText);
+                alert(`Error: ${responseText}`);
+                setGeneratingImg(false);
+                return;
+            }
+
+            const data = JSON.parse(responseText).catch((error) => {
+                console.error('Failed to parse JSON response:', error);
+                return null;
+            });
+
+            if (!data || !data.imageUrl) {
+                throw new Error('Empty response or missing imageUrl');
+            }
+
+            setForm({ ...form, photo: data.imageUrl });
+        } catch (err) {
+            console.error('An error occurred while generating the image:', err);
+            alert(`An error occurred while generating the image. ${err}`);
+        } finally {
+            setGeneratingImg(false);
+        }
     } else {
-      alert('Please provide proper prompt');
+        alert('Please provide a proper prompt');
     }
   };
 
@@ -63,26 +79,14 @@ const CreatePost = () => {
     if (form.prompt && form.photo) {
       setLoading(true);
       try {
-        const response = await fetch('https://dalle-arbb.onrender.com/api/v1/post', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ ...form }),
-        });
-
-        await response.json();
-        alert('Success');
-        navigate('/');
-      } catch (err) {
-        alert(err);
-      } finally {
-        setLoading(false);
+        const response = await axios.post('/api/image', { prompt });
+        setImageUrl(response.data.imageUrl);
+      } catch (error) {
+        console.error('Error generating image:', error);
       }
-    } else {
-      alert('Please generate an image with proper details');
     }
   };
+
 
   return (
     <section className="max-w-7xl mx-auto px-3">
@@ -91,7 +95,7 @@ const CreatePost = () => {
         <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">Generate an imaginative image through SocialLead AI and share it with the community</p>
       </div>
 
-      <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
+      <form className="mt-7 max-w-3xl" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-5">
           <FormField
             labelName="Your Name"
@@ -113,7 +117,7 @@ const CreatePost = () => {
             handleSurpriseMe={handleSurpriseMe}
           />
 
-          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-[24px] p-3 h-[24px] flex justify-center items-center m-4">
+          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-3 flex justify-center items-center m-1" style={{'width':'150px',"hight":"150px"}}>
             { form.photo ? (
               <img
                 src={form.photo}
@@ -121,7 +125,9 @@ const CreatePost = () => {
                 className="w-full h-full object-contain"
               />
             ) : (
-              <IMG />
+              <div className="object-contain opacity-40">
+                <img src="https://pixsector.com/cache/517d8be6/av5c8336583e291842624.png" alt="Image icon" />
+              </div>
             )}
 
             {generatingImg && (
@@ -132,7 +138,7 @@ const CreatePost = () => {
           </div>
         </div>
 
-        <div className="mt-5 flex gap-5">
+        <div className="mt-3 flex gap-5">
           <Button
             onClick={generateImage}
             variant="generate"
@@ -141,7 +147,7 @@ const CreatePost = () => {
           </Button>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-5">
           <p className="mt-2 text-[#666e75] text-[14px]">Once you have created the image you want, you can share it with others in the community</p>
           <Button
             variant="community"

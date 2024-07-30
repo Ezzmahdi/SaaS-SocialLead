@@ -1,5 +1,4 @@
 
-import Navbar2 from "@/components/Contentnavbar";
 import Sidebar from "@/components/sidebar";
 import { getApiLimitCount } from "@/lib/api-limit";
 import { checkSubscription } from "@/lib/subscription";
@@ -22,7 +21,8 @@ const DashboardLayout = async ({
                 </div>
             </div>
             <main className="md:pl-[250px]">
-                <Navbar2 />
+                <div className="flex items-center p-3">
+                </div>
                 {children}
             </main>
         </div>

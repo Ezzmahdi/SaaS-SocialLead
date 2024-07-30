@@ -1,4 +1,4 @@
-import { auth, currentUser } from "@clerk/nextjs";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 import prismadb from "@/lib/prismadb";
@@ -48,7 +48,7 @@ export async function GET() {
                             name: "SocialLead Pro",
                             description: "Unlimited AI Experience",
                         },
-                        unit_amount: 600,
+                        unit_amount: 1200,
                         recurring: {
                             interval: "month"
                         }

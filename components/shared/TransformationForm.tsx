@@ -4,11 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
-import { increaseApiLimit, checkApiLimit } from "@/lib/api-limit";
-
-
-import { checkSubscription } from "@/lib/subscription";
-
 import {
   Select,
   SelectContent,
@@ -34,7 +29,6 @@ import { useEffect, useState, useTransition } from "react"
 import { AspectRatioKey, debounce, deepMergeObjects } from "@/lib/utils"
 import MediaUploader from "./MediaUploader"
 import TransformedImage from "./TransformedImage"
-import { updateCredits } from "@/lib/actions/user.actions"
 import { getCldImageUrl } from "next-cloudinary"
 import { addImage, updateImage } from "@/lib/actions/image.actions"
 import { useRouter } from "next/navigation"
@@ -56,7 +50,6 @@ const TransformationForm = ({ action, data = null, userId, type, config = null }
   const [isTransforming, setIsTransforming] = useState(false);
   const [transformationConfig, setTransformationConfig] = useState(config)
   const [isPending, startTransition] = useTransition()
-  const [hasInsufficientCredits, setHasInsufficientCredits] = useState(false);
   const router = useRouter()
 
   const initialValues = data && action === 'Update' ? {
@@ -177,22 +170,9 @@ const TransformationForm = ({ action, data = null, userId, type, config = null }
     )
 
     setNewTransformation(null)
-
-    startTransition(async () => {
-      await updateCredits(userId, creditFee)
-    })
   }
 
-  
-
   useEffect(() => {
-    const checkCredits = async () => {
-      const insufficient = await checkSubscription()  || false;
-      setHasInsufficientCredits(insufficient);
-    };
-  
-    checkCredits();
-
     if(image && (type === 'restore' || type === 'removeBackground')) {
       setNewTransformation(transformationType.config)
     }
@@ -201,7 +181,6 @@ const TransformationForm = ({ action, data = null, userId, type, config = null }
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        { hasInsufficientCredits && <InsufficientCreditsModal />}
         <CustomField 
           control={form.control}
           name="title"

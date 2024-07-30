@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import BAR from './sidebar.module.css'
 
-import { Search, LucideHome, BookCopy, CalendarCheck2, BarChart2, ArrowDownNarrowWideIcon, ArrowBigDownDash, MoveDown, MoveDownIcon, ArrowDown01, ArrowUpDownIcon, ChevronDown, Edit, Pen, PencilLineIcon, Film } from 'lucide-react'
+import { Search, LucideHome, BookCopy, CalendarCheck2, BarChart2, ArrowDownNarrowWideIcon, ArrowBigDownDash, MoveDown, MoveDownIcon, ArrowDown01, ArrowUpDownIcon, ChevronDown, Edit, Pen, PencilLineIcon, Film, ImageIcon } from 'lucide-react'
 import { FreeCounter } from '@/components/freecounter';
 
 import { navLinks } from '@/constants/index'
@@ -75,8 +75,8 @@ export default function Sidebar({
                         </li>
 
                         <li className={`${BAR['nav-link']} `}>
-                            <Link href="/edit" >
-                                <i className={`${BAR.icon}`}><Edit/></i>
+                            <Link href="/images" >
+                                <i className={`${BAR.icon}`}><ImageIcon/></i>
                                 <span className={`${BAR.text} ${BAR['nav-text']}`}>Imagify</span>
                             </Link>
                         </li>
