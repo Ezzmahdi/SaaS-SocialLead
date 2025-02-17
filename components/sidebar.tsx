@@ -46,53 +46,53 @@ export default function Sidebar({
                         
                         
                         <li className={`${BAR['nav-link']} `}>
-                            <Link href="/dashboard" >
+                            <a href="/dashboard" >
                                 <i className={`icon ${BAR.icon}`}><LucideHome/></i>
                                 <span className={`${BAR.text} ${BAR['nav-text']}`}>Dashboard</span>
-                            </Link>
+                            </a>
                         </li>
 
                         <li className={`${BAR['nav-link']} `}>
-                            <Link href="/compose" >
+                            <a href="/compose" >
                                 <i className={`icon ${BAR.icon}`}><PencilLineIcon/></i>
                                 <span className={`${BAR.text} ${BAR['nav-text']}`}>Compose</span>
-                            </Link>
+                            </a>
                         </li>
 
                         
                         <li className={`${BAR['nav-link']} `}>
-                                <Link className={BAR.a} href="/templates" >
+                                <a className={BAR.a} href="/templates" >
                                     <i className={`${BAR.icon}`}><BookCopy/></i>
                                     <span className={`${BAR.text} ${BAR['nav-text']}`}>Magic Write</span>
-                                </Link>
+                                </a>
                         </li>
 
                         <li className={`${BAR['nav-link']} `}>
-                                <Link className={BAR.a} href="/video" >
+                                <a className={BAR.a} href="/video" >
                                     <i className={`${BAR.icon}`}><Film/></i>
                                     <span className={`${BAR.text} ${BAR['nav-text']}`}>AI Video</span>
-                                </Link>
+                                </a>
                         </li>
 
                         <li className={`${BAR['nav-link']} `}>
-                            <Link href="/images" >
+                            <a href="/images" >
                                 <i className={`${BAR.icon}`}><ImageIcon/></i>
                                 <span className={`${BAR.text} ${BAR['nav-text']}`}>Imagify</span>
-                            </Link>
+                            </a>
                         </li>
                         
                         <li className={`${BAR['nav-link']}`}>
-                            <Link href="/schedule" >
+                            <a href="/schedule" >
                                 <i className={`${BAR.icon}`}><CalendarCheck2/></i>
                                 <span className={`${BAR.text} ${BAR['nav-text']}`}>Schedule</span>
-                            </Link>
+                            </a>
                         </li>
 
                         <li className={`${BAR['nav-link']}`}>
-                            <Link href="/analytics" >
+                            <a href="/analytics" >
                                 <i className={`${BAR.icon}`}><BarChart2/></i>
                                 <span className={`${BAR.text} ${BAR['nav-text']}`}>Analytics</span>
-                            </Link>
+                            </a>
                         </li>
 
                     </ul>

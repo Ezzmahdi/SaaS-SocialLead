@@ -153,23 +153,23 @@ export default function UploadPage() {
   };
 
   const handleYoutubeAuth = () => {
-    window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}`;
+    window.location.href = `http://localhost:3000/api/auth/signin/google`;
   };
 
   const handleLinkedInAuth = () => {
-    window.location.href = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.NEXT_PUBLIC_LINKEDIN_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_LINKEDIN_REDIRECT_URI}&scope=${process.env.NEXT_PUBLIC_LINKEDIN_SCOPES}`;
+    window.location.href = `http://localhost:3000/api/auth/signin/linkedin`;
   };
 
   const handleTikTokAuth = () => {
-    window.location.href = '/api/auth/tiktok';
+    window.location.href = 'http://localhost:3000/api/auth/signin/tiktok';
   }
 
   const handleInstagramAuth = () => {
-    window.location.href = '/api/auth/instagram';
+    window.location.href = 'http://localhost:3000/api/auth/signin/instagram';
   };
 
   const handleFacebookAuth = () => {
-    window.location.href = '/api/auth/facebook';
+    window.location.href = 'http://localhost:3000/api/auth/signin/facebook';
   };
 
   return (
