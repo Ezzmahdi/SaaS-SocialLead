@@ -1,105 +1,105 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { checkSocialPlatform } from "@/lib/check-socials";
+// import axios from 'axios';
+// import { checkSocialPlatform } from "@/lib/check-socials";
 import { MessageSquareText, EllipsisVertical, SmilePlus, CircleFadingPlus, Hash, BarChartBig, LayoutTemplate, Lightbulb, CalendarRangeIcon, Layers, Send } from 'lucide-react';
 
-const postToSocialMedia = async (platform, content) => {
-  let url = '';
-  let headers = {};
-  let body = {};
+// const postToSocialMedia = async (platform, content) => {
+//   let url = '';
+//   let headers = {};
+//   let body = {};
 
-  switch (platform) {
-    case 'Twitter':
-      url = 'https://api.twitter.com/2/tweets';
-      headers = {
-        'Authorization': `Bearer ${process.env.TWITTER_CLIENT_KEY}:${process.env.TWITTER_CLIENT_SECRET}`,
-        'Content-Type': 'application/json'
-      };
-      body = { text: content };
-      break;
-    case 'TikTok':
-      url = 'https://open-api.tiktok.com/v2/post/publish/video/init/';
-      headers = {
-        'Authorization': `Bearer ${process.env.TIKTOK_CLIENT_KEY}:${process.env.TIKTOK_CLIENT_SECRET}`,
-        'Content-Type': 'application/json'
-      };
-      body = {
-        post_info: {
-          privacy_level: 'PUBLIC_TO_EVERYONE',
-          title: content,
-          source_info: {
-            source: 'FILE_UPLOAD',
-            video_url: 'URL_TO_YOUR_VIDEO'
-          }
-        }
-      };
-      break;
-    case 'YouTube':
-      url = 'https://www.googleapis.com/upload/youtube/v3/videos?uploadType=media';
-      headers = {
-        'Authorization': `Bearer ${process.env.YOUTUBE_CLIENT_KEY}:${process.env.YOUTUBE_CLIENT_SECRET}`,
-        'Content-Type': 'application/json'
-      };
-      body = {
-        snippet: { title: content, description: content, tags: [], categoryId: '22' },
-        status: { privacyStatus: 'public' }
-      };
-      break;
-    case 'Facebook':
-      url = `https://graph.facebook.com/v12.0/me/feed`;
-      headers = {
-        'Authorization': `Bearer ${process.env.FACEBOOK_CLIENT_KEY}:${process.env.FACEBOOK_CLIENT_SECRET}`,
-        'Content-Type': 'application/json'
-      };
-      body = { message: content };
-      break;
-    case 'LinkedIn':
-      url = 'https://api.linkedin.com/v2/ugcPosts';
-      headers = {
-        'Authorization': `Bearer ${process.env.LINKEDIN_CLIENT_KEY}:${process.env.LINKEDIN_CLIENT_SECRET}`,
-        'Content-Type': 'application/json'
-      };
-      body = {
-        author: 'urn:li:person:YOUR_PERSON_URN',
-        lifecycleState: 'PUBLISHED',
-        specificContent: {
-          'com.linkedin.ugc.ShareContent': {
-            shareCommentary: { text: content },
-            shareMediaCategory: 'NONE'
-          }
-        },
-        visibility: { 'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC' }
-      };
-      break;
-    default:
-      break;
-  }
+//   switch (platform) {
+//     case 'Twitter':
+//       url = 'https://api.twitter.com/2/tweets';
+//       headers = {
+//         'Authorization': `Bearer ${process.env.TWITTER_CLIENT_KEY}:${process.env.TWITTER_CLIENT_SECRET}`,
+//         'Content-Type': 'application/json'
+//       };
+//       body = { text: content };
+//       break;
+//     case 'TikTok':
+//       url = 'https://open-api.tiktok.com/v2/post/publish/video/init/';
+//       headers = {
+//         'Authorization': `Bearer ${process.env.TIKTOK_CLIENT_KEY}:${process.env.TIKTOK_CLIENT_SECRET}`,
+//         'Content-Type': 'application/json'
+//       };
+//       body = {
+//         post_info: {
+//           privacy_level: 'PUBLIC_TO_EVERYONE',
+//           title: content,
+//           source_info: {
+//             source: 'FILE_UPLOAD',
+//             video_url: 'URL_TO_YOUR_VIDEO'
+//           }
+//         }
+//       };
+//       break;
+//     case 'YouTube':
+//       url = 'https://www.googleapis.com/upload/youtube/v3/videos?uploadType=media';
+//       headers = {
+//         'Authorization': `Bearer ${process.env.YOUTUBE_CLIENT_KEY}:${process.env.YOUTUBE_CLIENT_SECRET}`,
+//         'Content-Type': 'application/json'
+//       };
+//       body = {
+//         snippet: { title: content, description: content, tags: [], categoryId: '22' },
+//         status: { privacyStatus: 'public' }
+//       };
+//       break;
+//     case 'Facebook':
+//       url = `https://graph.facebook.com/v12.0/me/feed`;
+//       headers = {
+//         'Authorization': `Bearer ${process.env.FACEBOOK_CLIENT_KEY}:${process.env.FACEBOOK_CLIENT_SECRET}`,
+//         'Content-Type': 'application/json'
+//       };
+//       body = { message: content };
+//       break;
+//     case 'LinkedIn':
+//       url = 'https://api.linkedin.com/v2/ugcPosts';
+//       headers = {
+//         'Authorization': `Bearer ${process.env.LINKEDIN_CLIENT_KEY}:${process.env.LINKEDIN_CLIENT_SECRET}`,
+//         'Content-Type': 'application/json'
+//       };
+//       body = {
+//         author: 'urn:li:person:YOUR_PERSON_URN',
+//         lifecycleState: 'PUBLISHED',
+//         specificContent: {
+//           'com.linkedin.ugc.ShareContent': {
+//             shareCommentary: { text: content },
+//             shareMediaCategory: 'NONE'
+//           }
+//         },
+//         visibility: { 'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC' }
+//       };
+//       break;
+//     default:
+//       break;
+//   }
 
-  try {
-    const response = await axios.post(url, body, { headers });
-    console.log(`${platform} response:`, response.data);
-  } catch (error) {
-    console.error(`Error posting to ${platform}:`, error);
-  }
-};
+//   try {
+//     const response = await axios.post(url, body, { headers });
+//     console.log(`${platform} response:`, response.data);
+//   } catch (error) {
+//     console.error(`Error posting to ${platform}:`, error);
+//   }
+// };
 
 export default function ContentManagementPage() {
   const [socialacc, setSocialacc] = useState([]);
   const [content, setContent] = useState('');
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
 
-  useEffect(() => {
-    const fetchSocialAccounts = async () => {
-      const accounts = await checkSocialPlatform();
-      if (accounts) {
-        setSocialacc(accounts);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchSocialAccounts = async () => {
+  //     const accounts = await checkSocialPlatform();
+  //     if (accounts) {
+  //       setSocialacc(accounts);
+  //     }
+  //   };
 
-    fetchSocialAccounts();
-  }, []);
+  //   fetchSocialAccounts();
+  // }, []);
 
   const handleSelectionChange = (platform) => {
     setSelectedPlatforms(prevSelected => {
@@ -111,11 +111,11 @@ export default function ContentManagementPage() {
     });
   };
 
-  const handlePost = () => {
-    selectedPlatforms.forEach(platform => {
-      postToSocialMedia(platform, content);
-    });
-  };
+  // const handlePost = () => {
+  //   selectedPlatforms.forEach(platform => {
+  //     postToSocialMedia(platform, content);
+  //   });
+  // };
 
     return (
       <div>
@@ -278,7 +278,7 @@ export default function ContentManagementPage() {
               <button
                 className="mt-2 dark:bg-zinc-600 dark:text-zinc-100 py-2 px-4 rounded-lg"
                 style={{ marginTop: '0.5rem', backgroundColor: '#e4e4e7', color: '#18181b', padding: '0.5rem 1rem', borderRadius: '0.5rem' }}
-                onClick={handlePost}
+                // onClick={handlePost}
               >
                 Post to Selected
               </button>
