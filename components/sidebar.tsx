@@ -58,28 +58,6 @@ export default function Sidebar({
                                 <span className={`${BAR.text} ${BAR['nav-text']}`}>Compose</span>
                             </a>
                         </li>
-
-                        
-                        <li className={`${BAR['nav-link']} `}>
-                                <a className={BAR.a} href="/templates" >
-                                    <i className={`${BAR.icon}`}><BookCopy/></i>
-                                    <span className={`${BAR.text} ${BAR['nav-text']}`}>Magic Write</span>
-                                </a>
-                        </li>
-
-                        <li className={`${BAR['nav-link']} `}>
-                                <a className={BAR.a} href="/video" >
-                                    <i className={`${BAR.icon}`}><Film/></i>
-                                    <span className={`${BAR.text} ${BAR['nav-text']}`}>AI Video</span>
-                                </a>
-                        </li>
-
-                        <li className={`${BAR['nav-link']} `}>
-                            <a href="/images" >
-                                <i className={`${BAR.icon}`}><ImageIcon/></i>
-                                <span className={`${BAR.text} ${BAR['nav-text']}`}>Imagify</span>
-                            </a>
-                        </li>
                         
                         <li className={`${BAR['nav-link']}`}>
                             <a href="/schedule" >
